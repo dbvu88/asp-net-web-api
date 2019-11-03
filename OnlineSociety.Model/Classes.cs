@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineSociety.Classes
 {
@@ -19,6 +20,9 @@ namespace OnlineSociety.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         public PetType Type { get; set; }
+        [Required]
+        public User Owner { get; set; }
+        //public int UserId { get; set; }
     }
 
     public class Clan
@@ -26,7 +30,6 @@ namespace OnlineSociety.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         public List<User> Members { get; set; }
-
     }
 
     public enum PetType
