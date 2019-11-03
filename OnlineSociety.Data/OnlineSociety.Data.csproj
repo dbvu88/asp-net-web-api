@@ -59,7 +59,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OnlineSociety.Classes\OnlineSociety.Model.csproj">
+    <ProjectReference Include="..\OnlineSociety.Model\OnlineSociety.Model.csproj">
       <Project>{F7144704-524C-4DD9-8576-CDEC8501029D}</Project>
       <Name>OnlineSociety.Model</Name>
     </ProjectReference>

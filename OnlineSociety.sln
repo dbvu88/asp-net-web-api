@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineSociety", "OnlineSociety\OnlineSociety.csproj", "{A688E166-5FDB-4D7F-9000-E605DDD35BD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineSociety.Model", "OnlineSociety.Classes\OnlineSociety.Model.csproj", "{F7144704-524C-4DD9-8576-CDEC8501029D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineSociety.Model", "OnlineSociety.Model\OnlineSociety.Model.csproj", "{F7144704-524C-4DD9-8576-CDEC8501029D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineSociety.Data", "OnlineSociety.Model\OnlineSociety.Data.csproj", "{5E5353B6-C22D-472D-92DC-DF627150F8C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineSociety.Data", "OnlineSociety.Data\OnlineSociety.Data.csproj", "{5E5353B6-C22D-472D-92DC-DF627150F8C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
