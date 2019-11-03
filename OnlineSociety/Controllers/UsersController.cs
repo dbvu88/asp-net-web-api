@@ -11,9 +11,9 @@ namespace OnlineSociety.Controllers
     public class UsersController : ApiController
     {
         // GET: Users
-        public object Get()
+        public IHttpActionResult Get()
         {
-            return new { username = "SuperLady", role = "Super Admin" };
+            return Ok(new { username = "SuperLady", role = "Super Admin" });
         }
     }
 }
