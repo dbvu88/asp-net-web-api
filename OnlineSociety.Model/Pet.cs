@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OnlineSociety.Classes
+namespace OnlineSociety.Model
 {
     public class Pet
     {

@@ -51,13 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201911032229141_Initial.cs" />
-    <Compile Include="Migrations\201911032229141_Initial.designer.cs">
-      <DependentUpon>201911032229141_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911040442584_AddDateOfBirthToUser.cs" />
-    <Compile Include="Migrations\201911040442584_AddDateOfBirthToUser.designer.cs">
-      <DependentUpon>201911040442584_AddDateOfBirthToUser.cs</DependentUpon>
+    <Compile Include="Migrations\201911041839512_Initial.cs" />
+    <Compile Include="Migrations\201911041839512_Initial.designer.cs">
+      <DependentUpon>201911041839512_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineSocietyContext.cs" />
@@ -74,11 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911032229141_Initial.resx">
-      <DependentUpon>201911032229141_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911040442584_AddDateOfBirthToUser.resx">
-      <DependentUpon>201911040442584_AddDateOfBirthToUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911041839512_Initial.resx">
+      <DependentUpon>201911041839512_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

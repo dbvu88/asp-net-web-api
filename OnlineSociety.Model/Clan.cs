@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OnlineSociety.Classes
+namespace OnlineSociety.Model
 {
     public class Clan
     {

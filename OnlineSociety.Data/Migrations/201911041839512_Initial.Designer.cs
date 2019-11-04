@@ -13,7 +13,7 @@ namespace OnlineSociety.Model.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201911032229141_Initial"; }
+            get { return "201911041839512_Initial"; }
         }
         
         string IMigrationMetadata.Source

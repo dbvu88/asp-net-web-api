@@ -1,19 +1,18 @@
 ﻿namespace OnlineSociety.Model.Migrations
 {
-    using OnlineSociety.Data;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OnlineSocietyContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OnlineSociety.Data.OnlineSocietyContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(OnlineSocietyContext context)
+        protected override void Seed(OnlineSociety.Data.OnlineSocietyContext context)
         {
             //  This method will be called after migrating to the latest version.
 

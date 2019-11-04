@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnlineSociety.Classes
+namespace OnlineSociety.Model
 {
     public enum PetType
     {
