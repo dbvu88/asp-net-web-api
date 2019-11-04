@@ -44,6 +44,10 @@
 
         public override void Down()
         {
+            DropTable("dbo.Users");
+            DropTable("dbo.Pets");
+            DropTable("dbo.Clans");
+
         }
     }
 }
