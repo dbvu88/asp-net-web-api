@@ -23,13 +23,13 @@
                         Id = c.Int(nullable: false, identity: true),
                         Username = c.String(),
                         Restricted = c.Boolean(nullable: false),
-                        ClantId = c.Int(nullable: false),
+                        ClanId = c.Int(nullable: false),
                         DateOfBirth = c.DateTime(nullable: false),
                         Clan_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Clans", t => t.Clan_Id)
-                .Index(t => t.Clan_Id);
+                .ForeignKey("dbo.Clans", t => t.ClanId)
+                .Index(t => t.ClanId);
             
             CreateTable(
                 "dbo.Pets",
