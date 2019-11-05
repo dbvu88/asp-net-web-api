@@ -1,4 +1,5 @@
-﻿using OnlineSociety.App_Start;
+﻿using Newtonsoft.Json.Serialization;
+using OnlineSociety.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace OnlineSociety
         {
             // Web API configuration and services
             AutofacConfig.Register();
+
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

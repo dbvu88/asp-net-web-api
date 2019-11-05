@@ -1,15 +1,20 @@
-﻿using OnlineSociety.Data;
+﻿using OnlineSociety.Models.DataModels;
 using System.Collections.Generic;
 using System.Linq;
-using OnlineSociety.Models.DataModels;
 
-namespace OnlineSociety.Model.UsersTbl
+namespace OnlineSociety.DataService.Tables
 {
-    public class UsersTbl : IUsersTbl
+    public interface IUsersTable
+    {
+        IEnumerable<User> GetUsers();
+        User GetUserByName(string username);
+    }
+
+    public class UsersTable : IUsersTable
     {
         private readonly OnlineSocietyContext _context;
 
-        public UsersTbl(OnlineSocietyContext context)
+        public UsersTable(OnlineSocietyContext context)
         {
             this._context = context;
         }
@@ -21,7 +26,7 @@ namespace OnlineSociety.Model.UsersTbl
 
         public IEnumerable<User> GetUsers()
         {
-            return _context.Users;
+            return _context.Users.ToList();
         }
     }
 }

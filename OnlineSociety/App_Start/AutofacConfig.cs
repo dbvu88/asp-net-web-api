@@ -1,13 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using OnlineSociety.Data;
-using OnlineSociety.Model;
-using OnlineSociety.Model.UsersTbl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using AutoMapper;
+using OnlineSociety.DataService;
+using OnlineSociety.DataService.Tables;
 using System.Reflection;
-using System.Web;
 using System.Web.Http;
 
 namespace OnlineSociety.App_Start
@@ -28,12 +24,20 @@ namespace OnlineSociety.App_Start
 
         private static void RegisterServices(ContainerBuilder bldr)
         {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new UserMappingProfile());
+            });
+
+            bldr.RegisterInstance(config.CreateMapper())
+                .As<IMapper>()
+                .SingleInstance();
 
             bldr.RegisterType<OnlineSocietyContext>()
               .InstancePerRequest();
 
-            bldr.RegisterType<UsersTbl>()
-              .As<IUsersTbl>()
+            bldr.RegisterType<UsersTable>()
+              .As<IUsersTable>()
               .InstancePerRequest();
         }
     }

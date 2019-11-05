@@ -52,6 +52,9 @@
     <Reference Include="Autofac.Integration.WebApi, Version=4.3.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.4.3.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0-preview2-19525-03\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -140,6 +143,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UserMappingProfile.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
@@ -263,13 +267,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OnlineSociety.Data\OnlineSociety.Data.csproj">
-      <Project>{5E5353B6-C22D-472D-92DC-DF627150F8C3}</Project>
-      <Name>OnlineSociety.Data</Name>
+    <ProjectReference Include="..\OnlineSociety.DataService\OnlineSociety.DataService.csproj">
+      <Project>{5DD47B98-82FB-4785-9C1F-C29DB6263528}</Project>
+      <Name>OnlineSociety.DataService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OnlineSociety.Model\OnlineSociety.Model.csproj">
-      <Project>{F7144704-524C-4DD9-8576-CDEC8501029D}</Project>
-      <Name>OnlineSociety.Model</Name>
+    <ProjectReference Include="..\OnlineSociety.Models\OnlineSociety.Models.csproj">
+      <Project>{BCC8CE82-0850-4AAE-A5DD-B9387F944A9B}</Project>
+      <Name>OnlineSociety.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

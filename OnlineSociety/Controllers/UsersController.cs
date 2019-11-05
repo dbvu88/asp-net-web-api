@@ -1,31 +1,32 @@
-﻿using OnlineSociety.Model;
-using OnlineSociety.Data;
-using OnlineSociety.Model;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Web.Http;
-using OnlineSociety.Model.UsersTbl;
+using AutoMapper;
+using System.Collections.Generic;
+using OnlineSociety.DataService.Tables;
+using OnlineSociety.Models.ViewModels;
 
 namespace OnlineSociety.Controllers
 {
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        public UsersController(IUsersTbl users)
+        public UsersController(IUsersTable users, IMapper mapper)
         {
-            Users = users;
+            _repo = users;
+            _mapper = mapper;
         }
 
-        public IUsersTbl Users { get; }
+        public IUsersTable _repo { get; }
+        public IMapper _mapper { get; }
 
         [Route()]
         public IHttpActionResult Get()
         {
             try
             {
-                var results = Users.GetUsers();
-                return Json(results);
+                var results = _repo.GetUsers();
+                var mappedResults = _mapper.Map<IEnumerable<UserModel>>(results);
+                return Ok(mappedResults);
             }
             catch(Exception ex)
             {
@@ -38,9 +39,9 @@ namespace OnlineSociety.Controllers
         {
             try
             {
-                var result = Users.GetUserByName(Username);
+                var result = _repo.GetUserByName(Username);
                 if (result == null) return NotFound();
-                return Json(result);
+                return Ok(result);
             }
             catch (Exception ex)
             {
