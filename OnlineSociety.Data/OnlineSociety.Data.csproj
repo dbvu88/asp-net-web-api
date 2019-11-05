@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IUsersTbl.cs" />
     <Compile Include="Migrations\201911041839512_Initial.cs" />
     <Compile Include="Migrations\201911041839512_Initial.designer.cs">
       <DependentUpon>201911041839512_Initial.cs</DependentUpon>
@@ -58,6 +59,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineSocietyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersTbl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

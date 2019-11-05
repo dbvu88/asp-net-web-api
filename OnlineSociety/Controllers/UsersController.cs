@@ -5,19 +5,25 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using OnlineSociety.Model.UsersTbl;
 
 namespace OnlineSociety.Controllers
 {
     public class UsersController : ApiController
     {
+        public UsersController(IUsersTbl users)
+        {
+            Users = users;
+        }
+
+        public IUsersTbl Users { get; }
+
         // GET: Users
         public IHttpActionResult Get()
         {
-
-            var dbContext = new OnlineSocietyContext();
             try
             {
-                var results = dbContext.Users.ToList();
+                var results = Users.GetUsers();
                 return Json(results);
             }
             catch(Exception ex)
