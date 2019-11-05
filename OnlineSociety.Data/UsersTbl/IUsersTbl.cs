@@ -9,5 +9,6 @@ namespace OnlineSociety.Model.UsersTbl
     public interface IUsersTbl
     {
         IEnumerable<User> GetUsers();
+        User GetUserByName(string username);
     }
 }

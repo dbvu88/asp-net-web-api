@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace OnlineSociety.Model.UsersTbl
 {
@@ -15,6 +16,12 @@ namespace OnlineSociety.Model.UsersTbl
         {
             this._context = context;
         }
+
+        public User GetUserByName(string name)
+        {
+            return _context.Users.FirstOrDefault(t => t.Username == name);
+        }
+
         public IEnumerable<User> GetUsers()
         {
             return _context.Users.ToList();
