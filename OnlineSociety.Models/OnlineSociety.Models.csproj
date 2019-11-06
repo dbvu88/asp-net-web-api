@@ -52,6 +52,7 @@
     <Compile Include="Enums\PetType.cs" />
     <Compile Include="MappingProfiles\UserMappingProfiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PetModel.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
   </ItemGroup>
   <ItemGroup />

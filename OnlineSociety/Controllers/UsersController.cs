@@ -21,11 +21,11 @@ namespace OnlineSociety.Controllers
         public IMapper _mapper { get; }
 
         [Route()]
-        public async Task<IHttpActionResult> GetAsync()
+        public async Task<IHttpActionResult> GetAsync(bool petsIncluded = false)
         {
             try
             {
-                var results = await _repo.GetUsersAsync();
+                var results = await _repo.GetUsersAsync(petsIncluded);
                 var mappedResults = _mapper.Map<IEnumerable<UserModel>>(results);
                 return Ok(mappedResults);
             }
@@ -41,9 +41,10 @@ namespace OnlineSociety.Controllers
             try
             {
                 var result = await _repo.GetUserByNameAsync(Username);
-                var mappedResult = _mapper.Map<UserModel>(result);
 
                 if (result == null) return NotFound();
+                var mappedResult = _mapper.Map<UserModel>(result);
+
                 return Ok(mappedResult);
             }
             catch (Exception ex)

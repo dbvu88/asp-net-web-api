@@ -27,6 +27,7 @@ namespace OnlineSociety.App_Start
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new UserMappingProfile());
+                cfg.AddProfile(new PetMappingProfile());
             });
 
             bldr.RegisterInstance(config.CreateMapper())

@@ -8,7 +8,7 @@ namespace OnlineSociety.DataService.Tables
 {
     public interface IUsersTable
     {
-        Task<IEnumerable<User>> GetUsersAsync();
+        Task<IEnumerable<User>> GetUsersAsync(bool petsIncluded = false);
         Task<User> GetUserByNameAsync(string username);
     }
 
@@ -28,11 +28,15 @@ namespace OnlineSociety.DataService.Tables
                 .FirstOrDefaultAsync(t => t.Username == name);
         }
 
-        public async Task<IEnumerable<User>> GetUsersAsync()
+        public async Task<IEnumerable<User>> GetUsersAsync(bool petsIncluded = false)
         {
-            return await _context.Users
-                .Include("Clan")
-                .ToArrayAsync();
+            var query = _context.Users.Include(c => c.Clan);
+
+            if ( petsIncluded )
+            {
+                query.Include(c => c.Pets);
+            }
+            return await query.ToArrayAsync();
         }
     }
 }
