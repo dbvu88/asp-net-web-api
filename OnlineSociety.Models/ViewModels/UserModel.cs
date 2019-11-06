@@ -10,5 +10,6 @@ namespace OnlineSociety.Models.ViewModels
     {
         public string Username { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string Clan { get; set; } 
     }
 }

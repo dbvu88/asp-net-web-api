@@ -1,13 +1,15 @@
 ﻿using OnlineSociety.Models.DataModels;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineSociety.DataService.Tables
 {
     public interface IUsersTable
     {
-        IEnumerable<User> GetUsers();
-        User GetUserByName(string username);
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetUserByNameAsync(string username);
     }
 
     public class UsersTable : IUsersTable
@@ -19,14 +21,18 @@ namespace OnlineSociety.DataService.Tables
             this._context = context;
         }
 
-        public User GetUserByName(string name)
+        public async Task<User> GetUserByNameAsync(string name)
         {
-            return _context.Users.FirstOrDefault(t => t.Username == name);
+            return await _context.Users
+                .Include(c => c.Clan)
+                .FirstOrDefaultAsync(t => t.Username == name);
         }
 
-        public IEnumerable<User> GetUsers()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return _context.Users.ToList();
+            return await _context.Users
+                .Include("Clan")
+                .ToArrayAsync();
         }
     }
 }

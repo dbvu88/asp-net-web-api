@@ -7,9 +7,9 @@ namespace OnlineSociety.DataService
 {
     public class OnlineSocietyContext : DbContext
     {
-        public OnlineSocietyContext()
+        public OnlineSocietyContext() : base("OnlineSocietyContext")
         {
-            this.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["OnlineSocietyContext"].ConnectionString;
+            //this.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["OnlineSocietyContext"].ConnectionString;
         }
         public DbSet<Clan> Clans { get; set; }
         public DbSet<User> Users { get; set; }

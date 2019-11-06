@@ -4,6 +4,7 @@ using AutoMapper;
 using System.Collections.Generic;
 using OnlineSociety.DataService.Tables;
 using OnlineSociety.Models.ViewModels;
+using System.Threading.Tasks;
 
 namespace OnlineSociety.Controllers
 {
@@ -20,11 +21,11 @@ namespace OnlineSociety.Controllers
         public IMapper _mapper { get; }
 
         [Route()]
-        public IHttpActionResult Get()
+        public async Task<IHttpActionResult> GetAsync()
         {
             try
             {
-                var results = _repo.GetUsers();
+                var results = await _repo.GetUsersAsync();
                 var mappedResults = _mapper.Map<IEnumerable<UserModel>>(results);
                 return Ok(mappedResults);
             }
@@ -35,13 +36,15 @@ namespace OnlineSociety.Controllers
         }
 
         [Route("{Username}")]
-        public IHttpActionResult Get(string Username)
+        public async Task<IHttpActionResult> GetAsync(string Username)
         {
             try
             {
-                var result = _repo.GetUserByName(Username);
+                var result = await _repo.GetUserByNameAsync(Username);
+                var mappedResult = _mapper.Map<UserModel>(result);
+
                 if (result == null) return NotFound();
-                return Ok(result);
+                return Ok(mappedResult);
             }
             catch (Exception ex)
             {

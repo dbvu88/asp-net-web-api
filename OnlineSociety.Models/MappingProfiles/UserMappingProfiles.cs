@@ -8,7 +8,10 @@ namespace OnlineSociety.Models.MappingProfiles
     {
         public UserMappingProfile()
         {
-            CreateMap<User, UserModel>();
+            CreateMap<User, UserModel>()
+                .ForMember(
+                userModel => userModel.Clan,
+                opt => opt.MapFrom(user => user.Clan.Name));
         }
     }
 }
