@@ -52,5 +52,22 @@ namespace OnlineSociety.Controllers
                 return InternalServerError(ex);
             }
         }
+
+        [Route("SearchByBirthDate/{BirthDate:datetime}")]
+        [HttpGet]
+        public async Task<IHttpActionResult> SearchByBirthDate(DateTime birthdate, bool petsIncluded = false)
+        {
+            try
+            {
+                var result = await _repo.GetUsersByBirthDateAsync(birthdate, petsIncluded);
+
+                var mappedResult = _mapper.Map<IEnumerable<UserModel>>(result);
+
+                return Ok(mappedResult);
+            } catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
     }
 }
